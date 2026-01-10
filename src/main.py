@@ -2,7 +2,9 @@ from textnode import *
 
 
 def main():
-    text_node = TextNode("Some dummy text", TextType.CODE_TEXT, "www.google.com")
+    text_node = TextNode("Some dummy text",
+                         TextType.CODE_TEXT,
+                         "www.google.com")
     print(text_node)
     return 0
 
