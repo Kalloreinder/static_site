@@ -24,7 +24,21 @@ def text_node_to_html_node(text_node: TextNode):
         return LeafNode("img", "", {"src": text_node.url, "alt": text_node.text})
     else:
         raise AttributeError("Text Type is not valid...")
+    
 
+def split_nodes_delimiter(old_nodes: TextNode, delimiter: str, text_type: TextType):
+    if old_nodes.text_type != TextType.PLAIN:
+        return [TextNode(old_nodes, text_type)]
+    if text_type not in TextType:
+        raise AttributeError("Text Type is not valid...")
+    split_nodes = []
+    old_node_text = old_nodes.text.split(delimiter)
+    for i in range(len(old_node_text)):
+        if i != 1:
+            split_nodes.append(TextNode(text=old_node_text[i]), TextType.PLAIN)
+        else:
+            split_nodes.append(TextNode(old_node_text[i]), text_type)
+    return split_nodes
 
 if __name__ == "__main__":
     main()
