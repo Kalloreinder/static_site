@@ -3,7 +3,7 @@ from HTMLNode import LeafNode
 
 def main():
     text_node = TextNode("Some dummy text",
-                         TextType.CODE_TEXT,
+                         TextType.CODE_PLAIN,
                          "www.google.com")
     print(text_node)
     return 0
